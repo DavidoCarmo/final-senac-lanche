@@ -1,7 +1,13 @@
 import React, { useReducer } from 'react';
 import './App.css';
 
+
+
+
+<div id='body'>
+</div>
 interface Lanche {
+
   id: number;
   nome: string;
   preco: number;
@@ -80,8 +86,11 @@ const App: React.FC = () => {
 
   return (
     <div className="container">
-      <h1>Selecione seus Lanches</h1>
       <div className="lanches-lista">
+        <div id='minititulo'>
+          <img id='fotoFundo' src="../public/image.png" alt="" />
+          <h1 id='titulo'>Selecione seus Lanches</h1>
+        </div>
         {Lanches.map(item => (
           <div key={item.id} className="lanche-item">
             <span>{item.nome} - R${item.preco.toFixed(2)}</span>
@@ -89,8 +98,8 @@ const App: React.FC = () => {
           </div>
         ))}
       </div>
-      <h2>Pedido:</h2>
       <div className="pedido-lista">
+        <h2 id='pedido'>Pedido:</h2>
         {state.pedido.map(item => (
           <div key={item.id} className="pedido-item">
             <span>{item.nome} - R${item.preco.toFixed(2)}</span>
@@ -103,5 +112,5 @@ const App: React.FC = () => {
     </div>
   );
 };
-
 export default App;
+
