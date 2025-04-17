@@ -1,16 +1,12 @@
 import React, { useReducer } from 'react';
 import './App.css';
 
-
-
-
-<div id='body'>
-</div>
 interface Lanche {
 
   id: number;
   nome: string;
   preco: number;
+  imagem: string;
 }
 
 interface State {
@@ -23,12 +19,14 @@ type Action =
   | { type: 'REMOVER_ITEM'; payload: number }
   | { type: 'LIMPAR_PEDIDO' };
 
+
 const Lanches: Lanche[] = [
-  { id: 1, nome: 'Hambúrguer', preco: 15.00 },
-  { id: 2, nome: 'Batata Frita', preco: 7.50 },
-  { id: 3, nome: 'Cachorro Quente', preco: 10.00 },
-  { id: 4, nome: 'Refrigerante', preco: 5.00 },
-  { id: 5, nome: 'Sorvete', preco: 8.00 }
+
+  { id: 1, nome: 'Hambúrguer', preco: 15.00, imagem: "../public/burguer.png" },
+  { id: 2, nome: 'Batata Frita', preco: 7.50, imagem: "../public/batata.png"},
+  { id: 3, nome: 'Cachorro Quente', preco: 10.00, imagem: "../public/cachorro.png" },
+  { id: 4, nome: 'Refrigerante', preco: 5.00, imagem: "../public/image.png" },
+  { id: 5, nome: 'Sorvete', preco: 8.00, imagem: "../public/image.png" }
 ];
 
 const initialState: State = { pedido: [], total: 0 };
@@ -64,6 +62,7 @@ const reducer = (state: State, action: Action): State => {
   }
 };
 
+
 const App: React.FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -93,6 +92,7 @@ const App: React.FC = () => {
         </div>
         {Lanches.map(item => (
           <div key={item.id} className="lanche-item">
+            <img id='fotos' src={item.imagem} alt="" />
             <span>{item.nome} - R${item.preco.toFixed(2)}</span>
             <button onClick={() => adicionarItem(item)}>Adicionar</button>
           </div>
@@ -102,6 +102,7 @@ const App: React.FC = () => {
         <h2 id='pedido'>Pedido:</h2>
         {state.pedido.map(item => (
           <div key={item.id} className="pedido-item">
+            <img id='fotos' src={item.imagem} alt="" />
             <span>{item.nome} - R${item.preco.toFixed(2)}</span>
             <button onClick={() => removerItem(item.id)}>Remover</button>
           </div>
