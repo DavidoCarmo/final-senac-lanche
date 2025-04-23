@@ -25,8 +25,8 @@ const Lanches: Lanche[] = [
   { id: 1, nome: 'Hambúrguer', preco: 15.00, imagem: "../public/burguer.png" },
   { id: 2, nome: 'Batata Frita', preco: 7.50, imagem: "../public/batata.png"},
   { id: 3, nome: 'Cachorro Quente', preco: 10.00, imagem: "../public/cachorro.png" },
-  { id: 4, nome: 'Refrigerante', preco: 5.00, imagem: "../public/image.png" },
-  { id: 5, nome: 'Sorvete', preco: 8.00, imagem: "../public/image.png" }
+  { id: 4, nome: 'Refrigerante', preco: 5.00, imagem: "../public/refri.png" },
+  { id: 5, nome: 'Sorvete', preco: 8.00, imagem: "../public/sorvete.png" }
 ];
 
 const initialState: State = { pedido: [], total: 0 };
